@@ -1,6 +1,7 @@
 package dev.james.restfulwebservice.service;
 
 import dev.james.restfulwebservice.dto.UserDto;
+import dev.james.restfulwebservice.exception.UserNotFoundException;
 import dev.james.restfulwebservice.models.User;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +43,13 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserDto findOne(int id) {
-        return users.stream().filter(predicate->predicate.getId() == id).findFirst().get();
+        return users.stream().filter(predicate->predicate.getId() == id).findFirst().orElseThrow(()->new UserNotFoundException("User " +id+" Not Found"));
+    }
+
+    @Override
+    public void deleteById(int id) {
+
+        users.removeIf(predicate -> predicate.getId() == id);
+
     }
 }

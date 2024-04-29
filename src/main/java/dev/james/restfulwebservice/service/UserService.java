@@ -11,5 +11,7 @@ public interface UserService {
    UserDto save(User user);
    UserDto findOne(int id);
 
+   void deleteById(int id);
+
 
 }
