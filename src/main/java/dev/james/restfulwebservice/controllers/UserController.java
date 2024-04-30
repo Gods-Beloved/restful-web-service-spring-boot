@@ -5,14 +5,11 @@ import dev.james.restfulwebservice.models.User;
 import dev.james.restfulwebservice.service.UserServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.sql.rowset.Predicate;
-import java.net.URI;
 import java.util.List;
 
 @RequestMapping("/")
