@@ -14,12 +14,12 @@ import java.util.List;
 
 @RequestMapping("/")
 @RestController
-public class UserController {
+public class UserResource {
 
     UserServiceImpl userService;
 
     @Autowired
-    public UserController(UserServiceImpl userService) {
+    public UserResource(UserServiceImpl userService) {
         this.userService = userService;
     }
 

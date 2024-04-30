@@ -52,22 +52,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorDetails,HttpStatus.BAD_REQUEST);
     }
 
-    //
-//    @ExceptionHandler(MethodArgumentNotValidException.class)
-//    public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request){
-//
-//        ErrorDetails errorDetails = new ErrorDetails();
-//        errorDetails.setDetails(request.getDescription(false));
-//        errorDetails.setTimestamp(LocalDateTime.now());
-//        errorDetails.setMessage(ex.getMessage());
-//
-//        return new ResponseEntity<>(errorDetails,HttpStatus.BAD_REQUEST);
-//
-//    }
-
-
-
-
 
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<ErrorDetails> handleUserNotFound(UserNotFoundException ex, WebRequest request){
