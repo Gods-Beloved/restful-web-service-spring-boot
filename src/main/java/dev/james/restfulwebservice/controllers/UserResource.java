@@ -1,7 +1,9 @@
 package dev.james.restfulwebservice.controllers;
 
+import dev.james.restfulwebservice.dto.PostDto;
 import dev.james.restfulwebservice.dto.UserDto;
 import dev.james.restfulwebservice.hateousentity.UserModeAssembler;
+import dev.james.restfulwebservice.models.Post;
 import dev.james.restfulwebservice.models.User;
 import dev.james.restfulwebservice.service.UserServiceImpl;
 import jakarta.validation.Valid;
@@ -99,8 +101,35 @@ public class UserResource {
 
     }
 
+    @GetMapping("users/{id}/posts")
+    public ResponseEntity<List<PostDto>> FindAllUserPostById(
+            @PathVariable
+            int id
+    ){
+
+      List<PostDto> postDtos = userService.findAllUserPost(id);
+
+      return new ResponseEntity<>(postDtos,HttpStatus.OK);
+
+    }
+
+    @PostMapping("users/{id}/posts")
+    public ResponseEntity<PostDto> SaveUserById(
+            @PathVariable
+            int id,
+            @Valid
+            @RequestBody
+            Post post
+
+    ){
 
 
+
+        PostDto postDto = userService.savePost(id,post);
+
+        return new ResponseEntity<>(postDto,HttpStatus.OK);
+
+    }
 
 
 
